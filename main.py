@@ -18,12 +18,14 @@ screen.tracer(0)
 
 turtle = Player()
 cars = CarManager()
+sb = Scoreboard()
 
 screen.listen()
 screen.onkey(turtle.up, "Up")
 
 game_is_on = True
 loop_counter = 0
+level_incremented = False
 
 while game_is_on:
     loop_counter += 1
@@ -34,8 +36,18 @@ while game_is_on:
         cars.generate_car()
     cars.move_cars()
 
+    # detecting whether turtle has collided with car
     if cars.get_collision_status(turtle) == True:
         game_is_on = False
+        sb.game_over_seq()
+
+    level_incremented = False
+    # detecting whether turtle has crossed finish line
+    if turtle.crossed_line() == True and level_incremented == False:
+        sb.increment_level()
+        level_incremented = True
+        turtle.reset_player()
+        cars.speed += 1
 
     screen.update()
 

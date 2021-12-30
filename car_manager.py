@@ -7,7 +7,7 @@ MOVE_INCREMENT = 10
 
 class CarManager():
     def __init__(self):
-        self.speed = STARTING_MOVE_DISTANCE;
+        self.speed = STARTING_MOVE_DISTANCE
         self.all_cars = []
 
     def generate_car(self):
@@ -24,8 +24,8 @@ class CarManager():
         for car in self.all_cars:
             car.speed("slow")
             car.forward(self.speed)
-            if car.xcor() <= -310:
-                self.all_cars.pop(car)
+            if car.xcor() <= -330:
+                self.all_cars.remove(car)
 
     def get_collision_status(self, player):
         for car in self.all_cars:
