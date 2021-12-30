@@ -44,6 +44,7 @@ while game_is_on:
     level_incremented = False
     # detecting whether turtle has crossed finish line
     if turtle.crossed_line() == True and level_incremented == False:
+        time.sleep(2)
         sb.increment_level()
         level_incremented = True
         turtle.reset_player()
