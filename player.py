@@ -9,6 +9,7 @@ class Player(Turtle):
     def __init__(self):
         super().__init__()
         self.shape("turtle")
+        self.color("white")
         self.penup()
         self.speed("fastest")
         self.setheading(90)
